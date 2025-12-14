@@ -7,9 +7,10 @@ local updates = collect(remotes_client.send_updates)
 
 -- system running every frame
 function replecs_client()
-    for buf, variants in updates do
+    for i, buf, variants in updates do
         replicator:apply_updates(buf, variants)
     end
 end
 
 system(replecs_client)
+
